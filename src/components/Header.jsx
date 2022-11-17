@@ -17,6 +17,7 @@ const NavContainer = styled.nav`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    background-color: red;
 `;
 
 function Header(props) {
