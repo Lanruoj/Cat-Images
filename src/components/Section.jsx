@@ -1,14 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import { ImageGrid } from "./ImageGrid";
 
 const StyledSection = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 1.5em;
+    padding: 0;
 `;
 
 const SectionParagraph = styled.p`
+    margin: 1em;
     font-size: 1.5em;
     font-family: "Roboto", sans-serif;
 `;
@@ -21,8 +23,15 @@ const SectionHeading = styled.h2`
 function Section(props) {
     return (
         <StyledSection>
-            <SectionHeading>{props.title}</SectionHeading>
-            <SectionParagraph>{props.body}</SectionParagraph>
+            {props.title ? (
+                <SectionHeading>{props.title}</SectionHeading>
+            ) : null}
+            {props.bodyText ? (
+                <SectionParagraph>{props.bodyText}</SectionParagraph>
+            ) : null}
+            {props.imageGrid ? (
+                <ImageGrid images={props.imageGrid}></ImageGrid>
+            ) : null}
         </StyledSection>
     );
 }
