@@ -1,21 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Button } from "./Button";
 
 const GridContainer = styled.div`
-    /* background-color: red; */
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     height: 100vh;
     max-width: 100%;
     justify-items: center;
-    align-items: center;
+    align-items: start;
+    margin-top: 2em;
 `;
 
 const GridImage = styled.img`
     max-width: 90%;
-    /* background-color: blue; */
     border-radius: 1em;
 `;
 
@@ -23,8 +22,7 @@ const GenerateForm = styled.form`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 2em;
-    /* background-color: red; */
+    margin: 2em;
     width: 100%;
 `;
 
@@ -39,24 +37,40 @@ const Dropdown = styled.select`
 `;
 
 function ImageGrid(props) {
+    const [images, setImages] = useState(null);
     const generateImages = (e) => {
-        props.fetchImages();
+        e.preventDefault();
+        props
+            .fetchImages(
+                `https://cataas.com/api/cats?tags=cute&limit=${
+                    document.querySelector("#img-count").value
+                }`
+            )
+            .then((images) => {
+                setImages(images);
+            });
     };
     return (
         <>
             <GenerateForm>
-                <Dropdown name="img-count">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
+                <Dropdown name="img-count" id="img-count">
+                    {[...Array(20).keys()].map((number) => {
+                        return <option value={number}>{number}</option>;
+                    })}
                 </Dropdown>
             </GenerateForm>
-            <Button text="Generate" onClick={generateImages} />
-            <GridContainer images={props.images}>
-                {props.images.map((image, index) => {
-                    return <GridImage key={index} src={image} />;
-                })}
+            <Button text="Generate" onClick={generateImages} id="generate" />
+            <GridContainer images={props.images} id="grid-container">
+                {images
+                    ? images.map((image, index) => {
+                          return (
+                              <GridImage
+                                  key={index}
+                                  src={`https://cataas.com/cat/${image._id}`}
+                              />
+                          );
+                      })
+                    : null}
             </GridContainer>
         </>
     );

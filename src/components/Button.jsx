@@ -19,7 +19,7 @@ const FormContainer = styled.form`
 function Button(props) {
     return (
         <FormContainer onClick={props.onClick}>
-            <StyledButton>{props.text}</StyledButton>
+            <StyledButton id={props.id}>{props.text}</StyledButton>
         </FormContainer>
     );
 }

@@ -28,10 +28,8 @@ function App() {
         // console.log("images");
         setPage("images");
     };
-    const fetchImages = () => {
-        fetch(`https://cataas.com/api/cats?tags=cute&limit=5`).then((json) =>
-            console.log(json)
-        );
+    const fetchImages = (url) => {
+        return fetch(url).then((data) => data.json());
     };
     return (
         <div className="App">

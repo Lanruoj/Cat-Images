@@ -29,7 +29,9 @@ function Header({ aboutPage, imagePage }) {
             <NavLink href="#" onClick={aboutPage}>
                 About
             </NavLink>
-            <NavLink href="#">Contact</NavLink>
+            <NavLink href="#">
+                <s>Contact</s>
+            </NavLink>
         </NavContainer>
     );
 }
