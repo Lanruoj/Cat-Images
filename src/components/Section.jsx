@@ -7,6 +7,7 @@ const StyledSection = styled.section`
     flex-direction: column;
     align-items: center;
     padding: 0;
+    padding-top: 5em;
 `;
 
 const SectionParagraph = styled.p`

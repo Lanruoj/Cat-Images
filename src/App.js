@@ -9,6 +9,11 @@ const images = [
     "https://robohash.org/Archie",
     "https://robohash.org/Archie",
     "https://robohash.org/Archie",
+    "https://robohash.org/Archie",
+    "https://robohash.org/Archie",
+    "https://robohash.org/Archie",
+    "https://robohash.org/Archie",
+    "https://robohash.org/Archie",
 ];
 
 function App() {

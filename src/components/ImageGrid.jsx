@@ -14,7 +14,7 @@ const GridContainer = styled.div`
 
 const GridImage = styled.img`
     max-width: 90%;
-    background-color: blue;
+    /* background-color: blue; */
     border-radius: 1em;
 `;
 

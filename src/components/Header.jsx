@@ -13,6 +13,9 @@ const NavLink = styled.a`
 `;
 
 const NavContainer = styled.nav`
+    position: fixed;
+    width: 100vw;
+    height: 5em;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
