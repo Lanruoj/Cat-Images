@@ -17,30 +17,30 @@ const images = [
 ];
 
 function App() {
-    const [beginClicked, setBeginClicked] = useState(false);
-    const beginApp = (e) => {
+    const [page, setPage] = useState("about");
+    const aboutPage = (e) => {
         e.preventDefault();
-        setBeginClicked(true);
+        console.log("about");
+        setPage("about");
+    };
+    const imagePage = (e) => {
+        e.preventDefault();
+        console.log("images");
+        setPage("images");
     };
     return (
         <div className="App">
-            <Header />
-            {beginClicked ? (
-                <Section imageGrid={images} />
-            ) : (
+            <Header aboutPage={aboutPage} imagePage={imagePage} />
+            {page === "images" && <Section imageGrid={images} />}
+            {page === "about" && (
                 <>
                     <Section
                         title="Cat Images"
                         bodyText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                     />
-                    <Button text="Begin" onClick={beginApp} />
+                    <Button text="Begin" onClick={imagePage} />
                 </>
             )}
-            {/* <Main>
-                <AboutSection />
-                <GenerateForm />
-                <ImageGrid />
-            </Main> */}
         </div>
     );
 }

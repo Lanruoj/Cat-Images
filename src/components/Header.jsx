@@ -23,10 +23,12 @@ const NavContainer = styled.nav`
     background-color: #f4f4f4;
 `;
 
-function Header(props) {
+function Header({ aboutPage, imagePage }) {
     return (
         <NavContainer>
-            <NavLink href="#">About</NavLink>
+            <NavLink href="#" onClick={aboutPage}>
+                About
+            </NavLink>
             <NavLink href="#">Contact</NavLink>
         </NavContainer>
     );
