@@ -18,7 +18,6 @@ const NavContainer = styled.nav`
     justify-content: space-around;
     align-items: center;
     background-color: #f4f4f4;
-    border-bottom: 3px dashed;
 `;
 
 function Header(props) {

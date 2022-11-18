@@ -6,7 +6,7 @@ import { Button } from "./components/Button";
 const images = [
     "https://robohash.org/Archie",
     "https://robohash.org/Archie",
-    "3https://robohash.org/Archie",
+    "https://robohash.org/Archie",
     "https://robohash.org/Archie",
     "https://robohash.org/Archie",
 ];
