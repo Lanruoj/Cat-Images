@@ -20,18 +20,25 @@ function App() {
     const [page, setPage] = useState("about");
     const aboutPage = (e) => {
         e.preventDefault();
-        console.log("about");
+        // console.log("about");
         setPage("about");
     };
     const imagePage = (e) => {
         e.preventDefault();
-        console.log("images");
+        // console.log("images");
         setPage("images");
+    };
+    const fetchImages = () => {
+        fetch(`https://cataas.com/api/cats?tags=cute&limit=5`).then((json) =>
+            console.log(json)
+        );
     };
     return (
         <div className="App">
             <Header aboutPage={aboutPage} imagePage={imagePage} />
-            {page === "images" && <Section imageGrid={images} />}
+            {page === "images" && (
+                <Section imageGrid={images} fetchImages={fetchImages} />
+            )}
             {page === "about" && (
                 <>
                     <Section

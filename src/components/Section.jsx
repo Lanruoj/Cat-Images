@@ -31,7 +31,10 @@ function Section(props) {
                 <SectionParagraph>{props.bodyText}</SectionParagraph>
             ) : null}
             {props.imageGrid ? (
-                <ImageGrid images={props.imageGrid}></ImageGrid>
+                <ImageGrid
+                    images={props.imageGrid}
+                    fetchImages={props.fetchImages}
+                ></ImageGrid>
             ) : null}
         </StyledSection>
     );
