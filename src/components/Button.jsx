@@ -2,13 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button.attrs({ type: "submit" })`
-    background-color: #b7b7b7;
+    background-color: #f4f4f4;
     border: none;
     border-radius: 0.3em;
     height: 2em;
-    width: 6em;
-    font-size: 3em;
-    font-family: monospace;
+    padding: 0 1.5rem;
+    font-size: 2rem;
+    font-family: "Roboto Mono", monospace;
+    color: #3700ff;
 `;
 
 const FormContainer = styled.form`

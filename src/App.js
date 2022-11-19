@@ -1,52 +1,42 @@
 import React, { useState } from "react";
+import { Main } from "./components/Main";
 import { Header } from "./components/Header";
 import { Section } from "./components/Section";
 import { Button } from "./components/Button";
 
-const images = [
-    "https://robohash.org/Archie",
-    "https://robohash.org/Archie",
-    "https://robohash.org/Archie",
-    "https://robohash.org/Archie",
-    "https://robohash.org/Archie",
-    "https://robohash.org/Archie",
-    "https://robohash.org/Archie",
-    "https://robohash.org/Archie",
-    "https://robohash.org/Archie",
-    "https://robohash.org/Archie",
-];
-
 function App() {
-    const [page, setPage] = useState("about");
-    const aboutPage = (e) => {
+    const [page, setPage] = useState("home");
+    const homePage = (e) => {
         e.preventDefault();
-        // console.log("about");
-        setPage("about");
+        setPage("home");
     };
     const imagePage = (e) => {
         e.preventDefault();
-        // console.log("images");
         setPage("images");
     };
     const fetchImages = (url) => {
         return fetch(url).then((data) => data.json());
     };
     return (
-        <div className="App">
-            <Header aboutPage={aboutPage} imagePage={imagePage} />
+        <Main className="App" style={{ fontFamily: "Roboto" }}>
+            <Header homePage={homePage} imagePage={imagePage} />
             {page === "images" && (
-                <Section imageGrid={images} fetchImages={fetchImages} />
+                <Section
+                    title="Cat Images"
+                    imageGrid={images}
+                    fetchImages={fetchImages}
+                />
             )}
-            {page === "about" && (
+            {page === "home" && (
                 <>
                     <Section
                         title="Cat Images"
-                        bodyText="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        bodyText="Welcome to the Cat Images Generator! Simply press Begin and choose how many cats you would like to generate. Enjoy!"
                     />
                     <Button text="Begin" onClick={imagePage} />
                 </>
             )}
-        </div>
+        </Main>
     );
 }
 

@@ -13,28 +13,25 @@ const StyledSection = styled.section`
 const SectionParagraph = styled.p`
     margin: 1em;
     font-size: 1.5em;
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto Mono", monospace;
+    text-align: center;
 `;
 
 const SectionHeading = styled.h2`
-    font-size: 4em;
-    font-family: monospace;
+    margin: 1rem;
+    font-size: 2.5rem;
+    font-family: "Roboto Mono", monospace;
 `;
 
 function Section(props) {
     return (
         <StyledSection>
-            {props.title ? (
-                <SectionHeading>{props.title}</SectionHeading>
-            ) : null}
+            <SectionHeading>{props.title}</SectionHeading>
             {props.bodyText ? (
                 <SectionParagraph>{props.bodyText}</SectionParagraph>
             ) : null}
             {props.imageGrid ? (
-                <ImageGrid
-                    images={props.imageGrid}
-                    fetchImages={props.fetchImages}
-                ></ImageGrid>
+                <ImageGrid fetchImages={props.fetchImages}></ImageGrid>
             ) : null}
         </StyledSection>
     );

@@ -5,9 +5,9 @@ const NavLink = styled.a`
     :visited,
     :link {
         margin: 0.5em;
-        font-size: 3em;
+        font-size: 2rem;
         text-decoration: none;
-        font-family: monospace;
+        font-family: "Roboto Mono", monospace;
         color: #222222;
     }
 `;
@@ -23,11 +23,11 @@ const NavContainer = styled.nav`
     background-color: #f4f4f4;
 `;
 
-function Header({ aboutPage, imagePage }) {
+function Header({ homePage, imagePage }) {
     return (
         <NavContainer>
-            <NavLink href="#" onClick={aboutPage}>
-                About
+            <NavLink href="#" onClick={homePage}>
+                Home
             </NavLink>
             <NavLink href="#">
                 <s>Contact</s>
